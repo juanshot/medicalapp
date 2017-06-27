@@ -1,0 +1,106 @@
+<!-- Title for the ion view -->
+<ion-view title="">
+
+
+
+
+
+
+<ion-nav-bar class="bar-calm">
+
+<ion-nav-back-button class="item-text-wrap">Atras</ion-nav-back-button>
+  </ion-nav-bar>
+  
+  </ion-nav-bar>
+    <ion-nav-title>
+       <img src="img/gemionic/titulo3.png">
+    </ion-nav-title>
+
+
+
+  <ion-nav-buttons side="left">
+    <button menu-toggle="left" class="button button-icon icon ion-navicon"></button>
+  </ion-nav-buttons>
+  <!-- ======================
+  END LEFT SIDE BUTTON
+  ====================== -->
+   <ion-nav-buttons side="right">
+     <button class="button button-icon icon ion-information-circled" ng-click="muestraInfo()"></button>
+    <button menu-toggle="right" class="button button-icon icon ion-android-share-alt"></button>
+  </ion-nav-buttons>
+
+
+<ion-content>
+
+<form name="form" novalidate> 
+
+<div class="list">
+  <label class="item item-input item-floating-label">
+    <span class="input-label">Nombre y Apellido</span>
+    <input  type="text" ng-model="cliente.nombre" name="nombre" placeholder="Nombre" required>
+  </label>
+  <label class="item item-input item-floating-label">
+    <span class="input-label">Email</span>
+    <input type="email" ng-model="cliente.email" name="email" placeholder="Email" required>
+  </label>
+   <label class="item item-input item-floating-label">
+    <span class="input-label">Direccion</span>
+    <input type="text" ng-model="cliente.direccion" name="direccion" placeholder="Direccion" required>
+  </label>
+
+   <label class="item item-input item-floating-label">
+    <span class="input-label">Telefono</span>
+    <input type="text" ng-model="cliente.telefono" name="telefono" placeholder="Telefono" required integer>
+  </label>
+
+
+  <label class="item item-input item-floating-label">
+    <span class="input-label">Contraseña</span>
+    <input type="password" ng-model="cliente.password" name="password"  placeholder="Contraseña" required>
+  </label>
+  <label class="item item-input item-floating-label">
+    <span class="input-label">Repita Contraseña</span>
+    <input type="password" ng-model="confirm_password" name="confirm_password"  ui-validate=" '$value == password' " ui-validate-watch=" 'password' " placeholder="Repita Contraseña">
+  </label>
+
+   <span ng-show='form.confirm_password.$error.validator'>No Coinciden Valores</span>
+</div>
+
+
+<div class="list card">
+
+  <a  ng-show="form.email.$error.required"  class="item item-icon-left">
+    <i class="ion-alert-circled"></i>
+    * Email no puede estar Vacio
+  </a>
+  <a  ng-show="form.telefono.$error.required"  class="item item-icon-left">
+    <i class="ion-alert-circled"></i>
+    * Telefono no puede estar Vacio
+  </a>
+  <a  ng-show="form.nombre.$error.required"  class="item item-icon-left">
+    <i class="ion-alert-circled"></i>
+    * Nombre y Apellido no puede estar Vacio
+  </a>
+  <a  ng-show="form.password.$error.required"  class="item item-icon-left">
+    <i class="ion-alert-circled"></i>
+    * Contrasena no puede estar Vacia
+  </a>
+
+
+
+</div>
+
+
+<button type="submit" class="button button-block button-calm" ng-click="registrar()" ng-disabled='form.$invalid'>
+  Registrarme
+</button>
+
+</form>
+
+
+
+</ion-content>
+
+
+</ion-view>
+

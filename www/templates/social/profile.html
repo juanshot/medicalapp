@@ -1,0 +1,118 @@
+<!-- Title for header bar (refer to www/index.html) -->
+<ion-view title="Perfil de {{medico.nombre_medico}}">
+
+
+<ion-nav-bar class="bar-calm">
+    <ion-nav-back-button class="item-text-wrap">Listado de Medicos</ion-nav-back-button>
+  </ion-nav-bar>
+  <!-- ======================
+  LEFT SIDE BUTTON
+  ====================== -->
+  <ion-nav-buttons side="left">
+    <button menu-toggle="left" class="button button-icon icon ion-navicon"></button>
+  </ion-nav-buttons>
+  <!-- ======================
+  END LEFT SIDE BUTTON
+  ====================== -->
+   <ion-nav-buttons side="right">
+     <button class="button button-icon icon ion-information-circled" ng-click="muestraInfo()"></button>
+  </ion-nav-buttons>
+
+  <!-- ======================
+  MAIN CONTENT SECTION
+  ====================== -->
+  <ion-content class="has-header gem-ion-content">
+    <!-- ======================
+    GEMIONIC PROFILE SECTION
+    ====================== -->
+    <ion-slide-box auto-play="true" does-continue="true" >
+      <ion-slide>
+      <div class="box red">
+      <img class="full-image" preload-image ng-src="http://medicalappecuador.com/medicalnew/public/fotos/{{medico.path}}" default-image="img/loader.gif" fallback-image="img/gemionic/medical.png">
+      </div>
+      </ion-slide>
+         <ion-slide>
+      <div class="box red">
+      <img class="full-image" preload-image ng-src="http://medicalappecuador.com/medicalnew/public/fotos/{{medico.path2}}" default-image="img/loader.gif" fallback-image="img/gemionic/medical.png">
+      </div>
+      </ion-slide>
+         <ion-slide>
+      <div class="box red">
+
+      <img class="full-image" preload-image ng-src="http://medicalappecuador.com/medicalnew/public/fotos/{{medico.path3}}" default-image="img/loader.gif" fallback-image="img/gemionic/medical.png">
+      </div>
+      </ion-slide>
+      <ion-slide>
+      <div class="box red">
+      <img class="full-image" preload-image ng-src="http://medicalappecuador.com/medicalnew/public/fotos/{{medico.path4}}" default-image="img/loader.gif" fallback-image="img/gemionic/medical.png">
+      </div>
+      </ion-slide>
+    
+  </ion-slide-box>
+
+      <div class="row profile-stats"  >
+          <div class="col stat" ng-click="muestraResumen()">
+             <a >  <i class="icon ion-document-text"></i><h6 class="gem-white uppercase margin-left ">Ver Curriculum</h6></a>
+          </div>
+
+
+          <div class="col stat" ng-click="compartirFacebook()">
+            <a >  <i class="icon ion-social-facebook"></i><h6 class="gem-white uppercase margin-left">Compartir via Facebook</h6> </a>
+            
+          </div>
+
+          <div class="col stat" ng-click="compartirWs()">
+            <a >  <i class="icon ion-social-whatsapp-outline"></i><h6 class="gem-white uppercase margin-left">Compartir via WhatsApp</h6> </a>
+           
+          </div>
+        </div>
+        
+  
+        <!-- End Ionic row -->
+      </div>
+    
+    <div class="text-center padding">
+      <div class="button button-calm" ng-click="citaForm()" ><div class= "item-text-wrap" >Reservar Cita</div></div>
+    </div>
+
+    <!-- Standard Ionic List Markup -->
+
+
+    <div class="list">
+      <a class="item item-icon-left" href="tel:{{medico.telefono}}">
+         <i class="icon ion-android-call"></i>
+         Llamar
+       </a>
+
+         <a class="item item-icon-left"  ng-click="localizar()">
+         <i class="icon ion-location"></i>
+         Ubicame
+       </a>
+
+       <a class="item item-icon-left"  href="mailto:{{medico.email}}">
+         <i class="icon ion-email"></i>
+         Enviar Correo
+       </a>
+
+       <a class="item item-icon-left" href="sms:{{medico.telefono}}">
+         <i class="icon ion-chatbubble-working"></i>
+         Enviar Mensaje
+       </a>
+       
+       <li class="item item-toggle item-icon-left">
+           <i class="icon ion-star"></i>
+           Agregar a mis Favoritos
+
+           <label class="toggle toggle-assertive">
+             <input type="checkbox" ng-model='selectFavorito' ng-click="changeFavorito()">
+             <div class="track">
+               <div class="handle"></div>
+             </div>
+           </label>
+        </li>
+    </div>
+    <!-- End Standard Ionic List Markup -->
+
+
+  </ion-content>
+</ion-view>

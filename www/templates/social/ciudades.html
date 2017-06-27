@@ -1,0 +1,44 @@
+<!-- Title for the ion view -->
+<ion-view class='fondo'>
+  <!-- ======================
+
+  LEFT SIDE BUTTON
+  ====================== -->
+
+  <ion-nav-bar class="bar-calm">
+  <ion-nav-back-button>Provincias</ion-nav-back-button>
+ 
+  </ion-nav-bar>
+
+   <ion-nav-title>
+       <img src="img/gemionic/titulo3.png">
+    </ion-nav-title>
+
+  <ion-nav-buttons side="left">
+    <button menu-toggle="left" class="button button-icon icon ion-navicon"></button>
+  </ion-nav-buttons>
+
+   <ion-nav-buttons side="right">
+     <button class="button button-icon icon ion-information-circled" ng-click="muestraInfo()"></button>
+    <button menu-toggle="right" class="button button-icon icon ion-android-share-alt"></button>
+  </ion-nav-buttons>
+
+
+ <ion-content class="padding">
+
+  <div class="list text-left">
+     
+
+    <div class="list text-left">
+
+      <div ng-repeat="ciudad in ciudades" ng-click='cambiarCiudad(ciudad)' class="item item-icon-left">
+        <i class="{{}}"></i>
+        {{ciudad.nombre_ciudad}}
+        <span class="pull-right"></span>
+      </div>
+     
+    </div>
+
+  </ion-content>
+
+</ion-view>

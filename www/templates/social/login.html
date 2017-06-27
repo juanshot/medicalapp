@@ -1,0 +1,30 @@
+<div class="modal">
+  <ion-header-bar>
+    <h1 class="title">Iniciar Sesión</h1>
+    <div class="buttons">
+      <button class="button button-clear" ng-click="closeLogin()"><i class="icon ion-close-circled"></i></button>
+    </div>
+  </ion-header-bar>
+  <ion-content>
+    <form name="form"  class="gem-form">
+      <div class="list">
+        <label class="item item-input">
+          <span class="input-label">Correo Electronico</span>
+          <input type="email" ng-model="loginData.email" placeholder="Correo" required>
+        </label>
+        <label class="item item-input">
+          <span class="input-label">Contraseña</span>
+          <input type="password" ng-model="loginData.password" placeholder="Contraseña" required>
+        </label>
+        <label class="item">
+          <button class="button button-block button-calm" type="submit" ng-click= "iniciarSesion()" ng-disabled='form.$invalid'>Iniciar Sesión</button>
+        </label>
+        <div ui-sref="app.registro" ng-click="closeLogin()" class="text-center padding">
+          <div class="padding">No estas Registrado?</div>
+          <button class="button button-calm" type="submit">Registrate Gratis</button>
+        </div>
+      </div>
+    </form>
+  </ion-content>
+</div>
+

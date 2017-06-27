@@ -1,0 +1,32 @@
+<ion-modal-view>
+  <ion-header-bar class="bar-calm">
+    <h1 class="title">Resumen Curricular</h1>
+    <div class="buttons">
+      <button class="button button-clear" ng-click="closeLogin()">Cerrar</button>
+    </div>
+  </ion-header-bar>
+
+
+  <ion-content>
+						    <div class="list card">
+
+						  <div class="item item-avatar">
+						    <img src="http://medicalappecuador.com/medicalnew/public/fotos/{{medico.path}}">
+						    <h2>{{medico.nombre_medico}}</h2>
+						    <p></p>
+						  </div>
+
+						  <div class="item item-body">
+						    <p>
+						      {{medico.resumen}}
+						    </p>
+						    <p>
+						     
+
+
+						    </p>
+						  </div>
+
+						</div>
+  </ion-content>
+</ion-modal-view>

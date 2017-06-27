@@ -1,0 +1,36 @@
+<ion-modal-view>
+  <ion-header-bar class="bar-calm">
+    <h1 class="title">Selecciona ciudad</h1>
+    <div class="buttons">
+      <button class="button button-clear" ng-click="closeLogin()">Cerrar</button>
+    </div>
+  </ion-header-bar>
+  <ion-content>
+
+ <ion-list>
+   <ion-item ng-click='volverPosicion()' class="item-stable">
+       <i class="icon ion-location"></i>
+     &nbsp;
+     Posición Actual
+   </ion-item>
+   <div ng-repeat="provincia in provinciasM">
+     <ion-item class="item-stable"
+               ng-click="toggleGroup(provincia)"
+               ng-class="{active: isGroupShown(provincia)}">
+         <i class="icon" ng-class="isGroupShown(provincia) ? 'ion-minus' : 'ion-plus'"></i>
+       &nbsp;
+       Provincia {{provincia.nombre_provincia}}
+     </ion-item>
+     <ion-item class="item-accordion"
+               ng-repeat="ciudad in provincia.ciudades"
+               ng-show="isGroupShown(provincia)"
+               ng-click="cambiarMapa(ciudad)"
+               >
+       {{ciudad.nombre_ciudad}}
+     </ion-item>
+   </div>
+ </ion-list>
+
+</ion-content>
+
+</ion-modal-view>

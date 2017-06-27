@@ -1,0 +1,34 @@
+<ion-modal-view>
+  <ion-header-bar class="bar-calm">
+    <h1 class="title">Resumen Curricular</h1>
+    <div class="buttons">
+      <button class="button button-clear" ng-click="closeLogin()">Cerrar</button>
+    </div>
+  </ion-header-bar>
+
+
+  <ion-content>
+						    <div class="list card">
+
+						  <div class="item item-avatar">
+						    <img src="img/gemionic/icono2.png">
+						    <h2>{{medico.nombre_medico}}</h2>
+						    <p></p>
+						  </div>
+
+						  <div class="item item-body">
+						    <img class="full-image" src="http://marketing360ecuador.com/panel_medicos/public/fotos/{{medico.path}}">
+						    <p>
+						      Aqui el curriculum del doctor respectivo.
+						    </p>
+						    <p>
+						      <a href="#" class="subdued">1 Me gusta</a>
+						      <a href="#" class="subdued">5 Comentarios</a>
+
+
+						    </p>
+						  </div>
+
+						</div>
+  </ion-content>
+</ion-modal-view>

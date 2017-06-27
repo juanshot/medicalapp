@@ -1,0 +1,64 @@
+<!-- Title for the ion view -->
+<ion-view title="">
+
+<ion-nav-bar class="bar-calm">
+    <ion-nav-back-button class="item-text-wrap" > Atras </ion-nav-back-button>
+  </ion-nav-bar>
+    <ion-nav-title>
+       <img src="img/gemionic/titulo3.png">
+    </ion-nav-title>
+ 
+  <ion-nav-buttons side="left">
+    <button menu-toggle="left" class="button button-icon icon ion-navicon"></button>
+  </ion-nav-buttons>
+
+   <ion-nav-buttons side="right">
+
+     <button class="button button-icon icon ion-information-circled" ng-click="muestraInfo()"></button>
+    <button menu-toggle="right" class="button button-icon icon ion-android-share-alt" ng-click="comparteRedes()"></button>
+  </ion-nav-buttons>
+
+<ion-content class="padding">
+
+
+
+<label class = "item item-input item-select item-stable">
+      <div class = "input-label">
+         Provincia
+      </div>
+    
+      <select ng-model="provincia" ng-change ="buscarProvincia(provincia)" >
+         <option value='1'>Azuay</option>
+                <option value='2'>Bolivar</option>
+                <option value='3'>Cañar</option>
+                <option value='4'>Carchi</option>
+                <option value='7'>Chimborazo</option>
+                <option value='8'>Cotopaxi</option>
+                 <option value='9'>El Oro</option>
+                <option value='10'>Esmeraldas</option>
+                <option value='11'>Islas Galapagos</option>
+                <option value='12'>Guayas</option>
+                <option value='13'>Imbabura</option>
+                <option value='14'>Loja</option>
+                <option value='15'>Los Rios</option>
+                <option value='16'>Manabí</option>
+                <option value='17'>Morona Santiago</option>
+                 <option value='18'>Guayas</option>
+                  <option value='19'>Napo</option>
+                   <option value='20'>Orellana</option>
+                   <option value='21'>Pastaza</option>
+                   <option value='22'>Pichincha</option>
+                      <option value='23'>Santa Elena</option>
+                       <option value='24'>Santo Domingo de los Tsáchilas</option>
+                        <option value='25'>Sucumbios</option>
+                        <option value='26'>Tungurahua</option>
+                        <option value='27'>Zamora</option>
+      </select>
+   </label>
+    
+
+
+
+</ion-content>
+ 
+</ion-view>

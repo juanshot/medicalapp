@@ -1,0 +1,65 @@
+<!-- Title for the ion view -->
+<ion-view title="">
+
+<ion-nav-bar class="bar-calm">
+    <ion-nav-back-button class="item-text-wrap" > Atras </ion-nav-back-button>
+  </ion-nav-bar>
+    <ion-nav-title>
+       <img src="img/gemionic/titulo3.png">
+    </ion-nav-title>
+ 
+  <ion-nav-buttons side="left">
+    <button menu-toggle="left" class="button button-icon icon ion-navicon"></button>
+  </ion-nav-buttons>
+
+   <ion-nav-buttons side="right">
+
+     <button class="button button-icon icon ion-information-circled" ng-click="muestraInfo()"></button>
+    <button menu-toggle="right" class="button button-icon icon ion-android-share-alt" ng-click="comparteRedes()"></button>
+  </ion-nav-buttons>
+
+
+  <ion-content class="has-header gem-ion-content">
+    <!-- Standard Ionic Markup for search -->
+   
+   
+    <div ng-repeat='cita in citas' class="list card">
+
+
+
+  <div class="list card">
+
+  <div class="item item-avatar2">
+    <img class="full-image" preload-image ng-src="http://medicalappecuador.com/medicalnew/public/fotos/{{cita.medico.path}}" default-image="img/gemionic/profile.png" fallback-image="img/gemionic/medical.png">
+    <h2 class="item-text-wrap">{{cita.medico.nombre_medico}}</h2>
+    <p class="item-text-wrap">{{cita.medico.especialidad.nombre_especialidad}}</p>
+  </div>
+
+  <div class="item item-body">
+    {{cita.sintomas}}
+  </div>
+
+  <a ng-if="cita.estatu_id == 1" class="item item-icon-left calm" href="#">
+    <i  class="icon ion-clock">En espera</i>
+  </a>
+
+  <a ng-if="cita.estatu_id == 2" class="item item-icon-left positive" href="#">
+    <i  class="icon ion-thumbsup">Confirmada</i>
+  </a>
+
+  <a ng-if="cita.estatu_id == 3" class="item item-icon-left energized" href="#">
+    <i  class="icon ion-checkmark-circled">Finalizada</i>
+  </a>
+
+  <a ng-if="cita.estatu_id == 4" class="item item-icon-left assertive" href="#">
+    <i  class="icon ion-android-cancel">Cancelada</i>
+  </a>
+
+</div>
+
+</div>
+
+  
+  </ion-content>
+ 
+</ion-view>

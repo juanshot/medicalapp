@@ -1,0 +1,33 @@
+ <ion-nav-view>
+  <ion-nav-bar class="bar-calm">
+ 
+  </ion-nav-bar>
+
+   <ion-nav-title class="item-text-wrap">
+       <img src="img/gemionic/titulo3.png">
+    </ion-nav-title>
+
+  <ion-nav-buttons side="left">
+    <button menu-toggle="left" class="button button-icon icon ion-navicon"></button>
+  </ion-nav-buttons>
+
+   <ion-nav-buttons side="right">
+     <button class="button button-icon icon ion-information-circled" ng-click="muestraInfo()"></button>
+    <button menu-toggle="right" class="button button-icon icon ion-android-share-alt" ng-click="comparteRedes()"></button>
+  </ion-nav-buttons>
+
+
+
+                    <ion-content>
+<ui-gmap-google-map center='mapa_medico.center' zoom='mapa_medico.zoom'>
+
+                    
+                    <ui-gmap-marker coords="marker_medico.coords" options="marker_medico.options" idkey="marker_medico.id">                                
+                    </ui-gmap-marker>
+                            
+
+
+</ui-gmap-google-map>
+                    </ion-content>
+
+                </ion-nav-view>

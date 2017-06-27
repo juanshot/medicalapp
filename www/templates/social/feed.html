@@ -1,0 +1,143 @@
+<!-- Title for the ion view -->
+<ion-view title="" ng-init="">
+
+  <!-- ======================
+
+  LEFT SIDE BUTTON
+  ====================== -->
+
+  <ion-nav-bar class="bar-calm">
+
+  </ion-nav-bar>
+
+   <ion-nav-title class="item-text-wrap">
+       <img src="img/gemionic/titulo3.png">
+    </ion-nav-title>
+
+  <ion-nav-buttons side="left">
+    <button menu-toggle="left" class="button button-icon icon ion-navicon"></button>
+  </ion-nav-buttons>
+
+   <ion-nav-buttons side="right">
+     <button class="button button-icon icon ion-information-circled" ng-click="muestraInfo()"></button>
+    <button menu-toggle="right" class="button button-icon icon ion-android-share-alt" ng-click="comparteRedes()"></button>
+  </ion-nav-buttons>
+
+
+
+
+  <script type="text/ng-template" id="control.tpl.html">
+
+        <select ng-model="txtBusqMapa" >
+          <option ng-repeat="especialidad in especialidades" value="{{especialidad.id}}">{{especialidad.nombre_especialidad}}</option>
+      </select>
+
+    </script>
+
+
+
+
+  </ion-content>
+  <ion-tabs class="tabs-custom" >
+
+
+           <!-- Tab 1 -->
+           <ion-tab title="Mapa"  icon-on="mapa" icon-off="mapa" href="#/tab/tab1">
+
+               <ion-nav-view name="tab-tab1">
+
+                   <ion-content>
+                   <button  ng-click="mostrarProvincias()" class="button icon-left  button-full button-positive ion-ios-location-outline">
+                         {{direccionR}}
+</button>
+
+<label class="item item-input item-select">
+   <div class="input-label">
+     Especialidad :
+   </div>
+   <select ng-model="filtroMapa.especialidad_id">
+     <option selected value="" ><div class="item-text-wrap">Especialidades</div></option>
+         <option ng-repeat="especialidad in especialidades" value="{{especialidad.id}}"><div class="item-text-wrap">{{especialidad.nombre_especialidad}}</div></option>
+   </select>
+ </label>
+
+<ui-gmap-google-map center='map.center' zoom='map.zoom'>
+
+
+
+
+                   <ui-gmap-marker coords="marker.coords" options="marker.options" idkey="marker.id">
+
+                   <ui-gmap-window isIconVisibleOnClick="true" options="windowOptions">
+                                   <div>Estas en : {{direccionR}}</div>
+                   </ui-gmap-window>
+
+
+
+                   </ui-gmap-marker>
+                   <ui-gmap-circle ng-repeat="c in circles track by c.id" center="c.center" stroke="c.stroke" fill="c.fill" radius="c.radius"
+                                   visible="c.visible" geodesic="c.geodesic" editable="c.editable" draggable="c.draggable" clickable="c.clickable" control="c.control"></ui-gmap-circle>
+
+
+
+                   <ui-gmap-marker data-ng-repeat="mk in markerList|filter:filtroMapa" coords="mk"  idkey="mk.id" options="markerListOptions" click="centrarMapa(mk)">
+
+
+                   <ui-gmap-window isIconVisibleOnClick="true" ng-cloak>
+                                   <div>
+
+                     <div class="card" ng-click="$parent.perfil($parent.mk)">
+
+                     <img class='infowindow-img' width="80px" preload-image ng-src="http://medicalappecuador.com/medicalnew/public/fotos/{{mk.path}}" default-image="img/loader.gif" fallback-image="img/gemionic/medical.png" ng-click="perfil(mk)"  alt="" class="gem-friend-list-profile-pic"
+                     >
+                     <div class="container">
+                       <b>{{mk.nombre_medico}}</b>
+                       <p></p>
+                     </div>
+                   </div>
+
+
+                    </div>
+                   </ui-gmap-window>
+                   </ui-gmap-marker>
+
+
+
+</ui-gmap-google-map>
+                   </ion-content>
+
+               </ion-nav-view>
+           </ion-tab>
+
+           <ion-tab   icon-on="listado" icon-off="listado"  title="Listado" href="#/tab/tab2">
+
+               <ion-nav-view name="tab-tab2">
+                   <ion-content>
+                       <div class="item item-input-inset">
+     <label class="item-input-wrapper">
+       <i class="icon ion-search placeholder-icon"></i>
+       <input type="text" placeholder="Ingrese Especialidad" ng-model="searchEspecialidad">
+     </label>
+   </div>
+   <div class="label-title"> {{especialidades.length}} Especialidades</div>
+
+   <div class="list">
+
+ <a  ng-repeat="especialidad in especialidades|orderBy: 'nombre_especialidad':false |filter: searchEspecialidad  " class="item item-icon-left item-icon-right" ng-click="ver(especialidad.medicos)">
+
+
+   <i  class="icon ion-person-stalker"></i>
+    <div class="item-text-wrap"> {{especialidad.nombre_especialidad}} </div>
+   <span class="badge badge-calm">{{especialidad.medicos.length}}</span>
+
+ </a>
+
+</div>
+
+                   </ion-content>
+               </ion-nav-view>
+           </ion-tab>
+
+       </ion-tabs>
+
+</ion-view>

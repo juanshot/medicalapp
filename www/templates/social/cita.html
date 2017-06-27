@@ -1,0 +1,95 @@
+<!-- Title for the ion view -->
+<ion-view title="">
+
+<ion-nav-bar class="bar-calm">
+    <ion-nav-back-button>Volver a Perfil</ion-nav-back-button>
+  </ion-nav-bar>
+  <!-- ======================
+  LEFT SIDE BUTTON
+  ====================== -->
+  <ion-nav-buttons side="left">
+    <button menu-toggle="left" class="button button-icon icon ion-navicon"></button>
+  </ion-nav-buttons>
+  <!-- ======================
+  END LEFT SIDE BUTTON
+  ====================== -->
+   <ion-nav-buttons side="right">
+     <button class="button button-icon icon ion-information-circled" ng-click="muestraInfo()"></button>
+    <button menu-toggle="right" class="button button-icon icon ion-android-share-alt" ng-click="comparteRedes()"></button>
+  </ion-nav-buttons>
+  <ion-content class="has-header gem-ion-content">
+  <ul class="list">
+<div class="label-title"> <h4> Cita con {{medico.nombre_medico}}</h4> </div>
+  <li class="item item-toggle">
+
+     <h2> Usar datos de sesion </h2>
+     <label class="toggle toggle-assertive">
+       <input type="checkbox" ng-model="session.useSession" ng-click="mostrarDatosSession()">
+       <div class="track">
+         <div class="handle"></div>
+       </div>
+     </label>
+  </li>
+
+</ul>
+
+
+
+
+    <form name="form">
+
+<div class="list">
+  <label class="item item-input item-floating-label">
+    <span class="input-label">Nombre</span>
+    <input  type="text" ng-model="cliente.nombre" name="nombre" placeholder="Nombre">
+  </label>
+  <label class="item item-input item-floating-label">
+    <span class="input-label">Email</span>
+    <input type="email" ng-model="cliente.email" name="email" placeholder="Email">
+  </label>
+   <label class="item item-input item-floating-label">
+    <span class="input-label">Telefono</span>
+    <input type="text" ng-model="cliente.telefono" name="telefono" placeholder="Telefono" required>
+  </label>
+   <div class="gem-edit-section">
+      <div class="gem-poster">
+        <div class="padding">
+          <h4>
+
+          <b>Sintomas , Motivo de la Solicitud</b>
+          </h4>
+          <div class="padding">
+          <!-- Textarea for editing text -->
+          <textarea ng-model="cliente.sintoma" required></textarea>
+          </div>
+        </div>
+      </div>
+
+      <div class="row gem-poster-controls padding"><!-- Bottom Controls - extends '.row' with padding -->
+        <a href="" ng-click="openDatePicker()" class="col control">Fecha: <i class="icon ion-calendar action"></i></a><b>{{fecha_cita}}</b>
+         <a href="" ng-click="openTimePicker()" class="col control">Hora: <i class="icon ion-clock action"></i></a><b>{{hora_cita}}</b>
+
+      </div>
+    </div>
+
+</div>
+
+<button type="submit" class="button button-block button-calm" ng-click="reservarCita()" ng-disabled='form.$invalid'>
+  Enviar
+</button>
+
+</form>
+
+</div>
+
+
+
+
+
+
+
+  </ion-content>
+  <!-- ======================
+  END MAIN CONTENT SECTION
+  ====================== -->
+</ion-view>
